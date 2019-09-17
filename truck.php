@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Car class.
- * Car is a subclass of Vehicle, it inherits attributes and methods
+ * Truck class.
+ * Truck is a subclass of Vehicle, it inherits attributes and methods
  * from its parent.
  *
  * @author  Simplon Clermont <yann+simplon@bouilhac.net>
@@ -12,9 +12,9 @@
 
 require_once 'vehicle.php';
 
-class Car extends Vehicle {
-    // Car has a specific attribute seats, it is not shared with other vehicles.
-    private $_seats;
+class Truck extends Vehicle {
+    // Truck has a specific attribute axles, it is not shared with other vehicles.
+    private $_axles;
 
     /**
      * Class constructor.
@@ -25,24 +25,24 @@ class Car extends Vehicle {
      * @param string $brand The brand name.
      * @param string $model The model name.
      * @param int    $year  The year.
-     * @param string $color The color of the car.
-     * @param int    $seats The number of seats in the car.
+     * @param string $color The color of the truck.
+     * @param int    $axles The number of axles in the truck.
      */
-    function __construct($brand, $model, $year, $color, $seats) {
+    function __construct($brand, $model, $year, $color, $axles) {
         // This calls the constructor of the parent class.
         parent::__construct($brand, $model, $year, $color);
-        $this->_seats = $seats;
+        $this->_axles = $axles;
     }
 
     /**
-     * Seats getter.
+     * Axles getter.
      *
-     * Returns the number of seats in the car.
+     * Returns the number of axles of the truck.
      *
      * @return int
      */
-    function getSeats() {
-        return $this->_seats;
+    function getAxles() {
+        return $this->_axles;
     }
 
     /**
@@ -52,6 +52,6 @@ class Car extends Vehicle {
      * @return string
      */
     function __toString() {
-        return "une voiture : $this->brand $this->model $this->_seats places $this->color ($this->year)";
+        return "un camion : " . parent::__toString() . " $this->_axles essieux";
     }
 }
